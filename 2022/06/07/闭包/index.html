@@ -62,7 +62,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="#">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -140,7 +140,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="#">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -158,61 +158,62 @@
             <article id="post-闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
+      <header class=" article-header">
+  
   
     <h1 class="article-title" itemprop="name">
       闭包
     </h1>
   
 
-        
-        <a href="/2022/06/07/%E9%97%AD%E5%8C%85/" class="archive-article-date">
+  
+  <a href="/2022/06/07/%E9%97%AD%E5%8C%85/" class="archive-article-date">
   	<time datetime="2022-06-07T10:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
 </a>
-        
-      </header>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包指的是一个函数有权访问另一个函数作用域内的变量的函数，简单来说就是提供了一条全局访问函数内部变量的通道。正常情况下函数内部的变量在全局是访问不到的。</p>
+    <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包指的是一个函数有权访问另一个函数作用域内的变量的函数，简单来说就是提供了一条全局访问函数内部变量的通道。正常情况下函数内部的变量在全局是访问不到的。</p>
 <p><img src="/2022/06/07/%E9%97%AD%E5%8C%85/1.png"><br><img src="/2022/06/07/%E9%97%AD%E5%8C%85/2.png"></p>
 <h3 id="为什么闭包中的变量不会被销毁？"><a href="#为什么闭包中的变量不会被销毁？" class="headerlink" title="为什么闭包中的变量不会被销毁？"></a>为什么闭包中的变量不会被销毁？</h3><p>我们都知道函数在执行完毕后其内部的变量会被自动销毁，而闭包中的变量不会被自动销毁，想要销毁闭包中的变量需要手动清除。比如上述的例子中 让 b=null 就销毁了。那为什么闭包中的变量不会被销毁，简单来说因为 fn1 函数产生一个作用域 fn2 函数也产生一个作用域 fn2 函数产生的作用域引用 fn1 函数中的变量。根据垃圾回收机制 被另一个作用域引用的变量不会被回收。</p>
 
-      
+    
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
               </span>
             </span>
-          </div>
-          </a>
+          </span>
         </div>
-      
+      </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 
-      
+    
 
-      
-        
+    
+    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -262,13 +263,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
 
-  
+
 <nav id="article-nav">
   
     <a href="/2022/06/16/%E6%88%96%E8%BF%90%E7%AE%97%E4%B8%8E%E8%BF%90%E7%AE%97%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -307,8 +308,8 @@
 
 
 
-  
-  <div class="duoshuo">
+
+<div class="duoshuo">
 	<!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="闭包" data-title="闭包" data-url="http://example.com/2022/06/07/%E9%97%AD%E5%8C%85/"></div>
 	<!-- 多说评论框 end -->
@@ -327,10 +328,10 @@
 	<!-- 多说公共JS代码 end -->
 </div>
 
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
     url: "http://example.com/2022/06/07/%E9%97%AD%E5%8C%85/", 
@@ -340,13 +341,13 @@
   };
 </script>
 <script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
 
-  
 
-  
 
-  
+
+
+
+
 
 
           </div>
@@ -485,6 +486,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只&lt;br&gt;努力向上爬的&lt;br&gt;蜗牛</div>
   	  	
     	</section>
     

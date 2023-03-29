@@ -61,7 +61,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="#">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -139,7 +139,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="#">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -157,59 +157,60 @@
             <article id="post-vue计算属性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
+      <header class=" article-header">
+  
   
     <h1 class="article-title" itemprop="name">
       vue计算属性
     </h1>
   
 
-        
-        <a href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="archive-article-date">
+  
+  <a href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="archive-article-date">
   	<time datetime="2022-10-03T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
 </a>
-        
-      </header>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>1.计算属性顾名思义是进行计算的，将 data 中的数据通过一系列的操作得到我们想要的数据的形式，所以计算属性也是对 data 中的数据进行操作<br>注意：计算属性定义的时候为方法，但是使用时当做属性来使用<br>如下图 我们将 data 中 a,b 的值通过计算属性得到 a+b 的值(sum)<br>有人可能会说我直接在插值表达式中写 a+b 不就行了吗，计算属性不是多此一举吗？<br>但是如果是计算 a+b+c+d+…的值呢？你不可能全部写在插值表达式里吧。<br>2.computed 与 methods 都能够实现对数据的复杂处理，那为什么要使用计算属性呢？<br>因为计算属性是基于缓存实现的，只有在计算属性所依赖的值发生改变后才会重新求值，<br>否则都是取缓存中的值，相比于 methods 每次求值都有调用一次函数，效率低。 3.计算属性的底层是基于 object.defineProperty()<br><img src="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/1IGZLO7(8%254FEQMUFKE0ATU.png"></p>
+    <h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>1.计算属性顾名思义是进行计算的，将 data 中的数据通过一系列的操作得到我们想要的数据的形式，所以计算属性也是对 data 中的数据进行操作<br>注意：计算属性定义的时候为方法，但是使用时当做属性来使用<br>如下图 我们将 data 中 a,b 的值通过计算属性得到 a+b 的值(sum)<br>有人可能会说我直接在插值表达式中写 a+b 不就行了吗，计算属性不是多此一举吗？<br>但是如果是计算 a+b+c+d+…的值呢？你不可能全部写在插值表达式里吧。<br>2.computed 与 methods 都能够实现对数据的复杂处理，那为什么要使用计算属性呢？<br>因为计算属性是基于缓存实现的，只有在计算属性所依赖的值发生改变后才会重新求值，<br>否则都是取缓存中的值，相比于 methods 每次求值都有调用一次函数，效率低。 3.计算属性的底层是基于 object.defineProperty()<br><img src="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/1IGZLO7(8%254FEQMUFKE0ATU.png"></p>
 
-      
+    
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
               </span>
             </span>
-          </div>
-          </a>
+          </span>
         </div>
-      
+      </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 
-      
+    
 
-      
-        
+    
+    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -259,13 +260,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
 
-  
+
 <nav id="article-nav">
   
     <a href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -304,8 +305,8 @@
 
 
 
-  
-  <div class="duoshuo">
+
+<div class="duoshuo">
 	<!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="vue计算属性" data-title="vue计算属性" data-url="http://example.com/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/"></div>
 	<!-- 多说评论框 end -->
@@ -324,10 +325,10 @@
 	<!-- 多说公共JS代码 end -->
 </div>
 
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
     url: "http://example.com/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/", 
@@ -337,13 +338,13 @@
   };
 </script>
 <script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
 
-  
 
-  
 
-  
+
+
+
+
 
 
           </div>
@@ -482,6 +483,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只&lt;br&gt;努力向上爬的&lt;br&gt;蜗牛</div>
   	  	
     	</section>
     

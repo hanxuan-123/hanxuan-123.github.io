@@ -62,7 +62,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="#">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -140,7 +140,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="#">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -158,24 +158,24 @@
             <article id="post-key的原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
+      <header class=" article-header">
+  
   
     <h1 class="article-title" itemprop="name">
       key的原理
     </h1>
   
 
-        
-        <a href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  
+  <a href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
   	<time datetime="2022-10-09T11:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-09</time>
 </a>
-        
-      </header>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="key-的原理"><a href="#key-的原理" class="headerlink" title="key 的原理"></a>key 的原理</h3><p>在 vue 中 v-for 我们都要跟一个 key 属性，一般都是用 id 偶尔也用索引作为 key 的值 1.虚拟 dom 中 key 的作用：<br>key 是虚拟 dom 对象的标识，当数据发生变化时，Vue 会根据新数据生成新的虚拟 dom，随后 Vue 进行新虚拟 dom 与旧虚拟 dom 的差异比较，比较规则如下： 2.对比规则：</p>
+    <h3 id="key-的原理"><a href="#key-的原理" class="headerlink" title="key 的原理"></a>key 的原理</h3><p>在 vue 中 v-for 我们都要跟一个 key 属性，一般都是用 id 偶尔也用索引作为 key 的值 1.虚拟 dom 中 key 的作用：<br>key 是虚拟 dom 对象的标识，当数据发生变化时，Vue 会根据新数据生成新的虚拟 dom，随后 Vue 进行新虚拟 dom 与旧虚拟 dom 的差异比较，比较规则如下： 2.对比规则：</p>
 <p>(1)旧虚拟 dom 中找到了与新虚拟 dom 相同的 key<br>① 若虚拟 Dom 中内容没发生改变，直接使用先前的真实 dom<br>② 若虚拟 dom 中的内容变了，则生成新的真实 dom，随后替换掉页面中之间的虚拟 Dom</p>
 <p>(2)旧虚拟 dom 中未找到与新虚拟 Dom 相同的 key<br>创建新的真实 dom，随后渲染到页面 3.使用 index 作为 key 值可能引发的问题：</p>
 <p>（1）若对数据进行：逆序添加，逆序删除等破坏顺序的操作<br>会产生没必要的真实 dom 更新，====》页面虽然没问题，但是效率低。</p>
@@ -183,40 +183,41 @@
 <p>4.开发中如何选择 key？<br>(1)最好用数据的唯一标识作为 key<br>(2)如果不存在对数据循序的修改，仅用于页面的渲染展示，用 index 作为 key 值也没问题。</p>
 <p><img src="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/G0TW(Y%60%5DWY%25D114X71(%605PV.png"><br><img src="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/GX%60~R~%7BZ4(%7B%7D4%25YLU44ZKD5.png"></p>
 
-      
+    
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
               </span>
             </span>
-          </div>
-          </a>
+          </span>
         </div>
-      
+      </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 
-      
+    
 
-      
-        
+    
+    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -266,13 +267,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
 
-  
+
 <nav id="article-nav">
   
     <a href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -311,8 +312,8 @@
 
 
 
-  
-  <div class="duoshuo">
+
+<div class="duoshuo">
 	<!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="key的原理" data-title="key的原理" data-url="http://example.com/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/"></div>
 	<!-- 多说评论框 end -->
@@ -331,10 +332,10 @@
 	<!-- 多说公共JS代码 end -->
 </div>
 
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
     url: "http://example.com/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/", 
@@ -344,13 +345,13 @@
   };
 </script>
 <script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
 
-  
 
-  
 
-  
+
+
+
+
 
 
           </div>
@@ -489,6 +490,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只&lt;br&gt;努力向上爬的&lt;br&gt;蜗牛</div>
   	  	
     	</section>
     
