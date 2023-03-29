@@ -150,6 +150,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/">err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</a>
+    </h1>
+  
+
+  
+  <a href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/" class="archive-article-date">
+  	<time datetime="2023-03-29T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>输入hexo g 命令后报错：err: YAMLException: can not read a block mapping entry; a multiline key may<br>  not be an implicit key at line 4, column 1</p>
+<p>主要原因就是后面忘记加空格了</p>
+<p>解决：</p>
+<p><img src="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/error.png"></p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-搜索框防抖处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -746,83 +823,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/10/03/vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Object-defineProperty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/03/Object-defineProperty/">Object.defineProperty</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/03/Object-defineProperty/" class="archive-article-date">
-  	<time datetime="2022-10-03T11:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><p>1.defineProperty()方法可以为对象添加一个新的属性</p>
-<p>2.此方法有三个参数，第一个是 目标对象，第二个是需要添加的新属性的属性名，第三个参数对象为一个配置对象，配置对象中又含有 4 个配置项:</p>
-<p>value:xxx//新属性对于的值</p>
-<p>writable:true//设置新加的属性是否可修改,默认为 false</p>
-<p>enumerable:true//设置新属性是否可枚举（遍历），默认为 false</p>
-<p>获取新属性后会调用 get，并把新属性的值返回。</p>
-<p>get(){</p>
-<p>return</p>
-<p>}</p>
-<p>修改新属性的值为调用该函数，并将修改后的属性值作为参数传入</p>
-<p>set(value){</p>
-<p>}</p>
-<p>注意：当使用了 get 或 set 就不能再用 value 和 writable(会直接报错)。</p>
-<p><img src="/2022/10/03/Object-defineProperty/D%257%60VOE4_N%5B6NWA%7D_NRX6BG.png"></p>
-<p><img src="/2022/10/03/Object-defineProperty/Z5M(_A4%251DE%5DAI%7DJ%5BBX9RR5.png"></p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/03/Object-defineProperty/">展开全文 >></a>
     </p>
     
 
