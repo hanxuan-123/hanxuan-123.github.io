@@ -150,6 +150,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-搜索框防抖处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">搜索框防抖处理</a>
+    </h1>
+  
+
+  
+  <a href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2023-03-29T04:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="搜索框防抖处理"><a href="#搜索框防抖处理" class="headerlink" title="搜索框防抖处理"></a>搜索框防抖处理</h4><p>防抖：当持续触发事件时，在一定时间内没有在触发该事件，事件处理函数才会执行一次。若是在规定的时间之前又触发了事件，则重新开始延时。通俗的理解就是如果用户频繁的触发事件，那么只执行该事件的最后一次。</p>
+<p>举个栗子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div</span><br><span class="line">         &lt;input @input=&quot;input&quot; v-model=&quot;put&quot;&gt;&lt;/input&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                timerId: null,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            input(e)&#123;</span><br><span class="line">                cleanTimeout(this.timer)</span><br><span class="line">                this.timerId = setTimeout( () =&gt; &#123;</span><br><span class="line">                  //发送请求</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用户在输入框中输入值会触发input事件，只有当输入停止触发input事件1秒后才会才会执行事件处理函数发送请求。</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git-push时-报error-failed-to-push-some-refs-to" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -774,73 +852,6 @@
 
 
   
-    <article id="post-vue数据绑定指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/02/vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/">vue数据绑定指令</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/02/vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2022-10-02T14:07:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-02</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="vue单向数据绑定-v-bind-简写："><a href="#vue单向数据绑定-v-bind-简写：" class="headerlink" title="vue单向数据绑定 v-bind(简写：)"></a>vue单向数据绑定 v-bind(简写：)</h3><p>MVVM模型：M:Model(data) V:View(视图也就是我们的页面) VM:ViewModel(vue实列)</p>
-<p>1.单向数据绑定也就是将Model绑定到View上，数据只能从data流向Dom页面，即使当我们用jsp代码改变data中的数据时，新的数据会流向页面从而渲染新的数据。</p>
-<p>2.插值表达式就是使用单向数据绑定</p>
-<h3 id="双向数据绑定-v-model-无简写"><a href="#双向数据绑定-v-model-无简写" class="headerlink" title="双向数据绑定 v-model (无简写)"></a>双向数据绑定 v-model (无简写)</h3><p>1.双向数据绑定将Model绑定到View同时也将View绑定到Model上，实现数据的双向流动，改变data的数据会影响页面，若用户更新了页面，data中的数据也会被更新。</p>
-<p>2.v-model 只针对表单元素（用户可以进行交互），绑定的是value元素。</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/02/vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -935,6 +946,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
             
             <div class="clearfix"></div>

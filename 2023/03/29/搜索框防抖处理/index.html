@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 寒暄的个人博客</title>
+  <title>搜索框防抖处理 | 寒暄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="寒暄的个人博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="搜索框防抖处理防抖：当持续触发事件时，在一定时间内没有在触发该事件，事件处理函数才会执行一次。若是在规定的时间之前又触发了事件，则重新开始延时。通俗的理解就是如果用户频繁的触发事件，那么只执行该事件的最后一次。 举个栗子： 12345678910111213141516171819202122&lt;template&gt;	&lt;div         &lt;input @input&#x3D;&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜索框防抖处理">
+<meta property="og:url" content="http://example.com/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="寒暄的个人博客">
+<meta property="og:description" content="搜索框防抖处理防抖：当持续触发事件时，在一定时间内没有在触发该事件，事件处理函数才会执行一次。若是在规定的时间之前又触发了事件，则重新开始延时。通俗的理解就是如果用户频繁的触发事件，那么只执行该事件的最后一次。 举个栗子： 12345678910111213141516171819202122&lt;template&gt;	&lt;div         &lt;input @input&#x3D;&amp;qu">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-29T04:27:57.000Z">
+<meta property="article:modified_time" content="2023-03-29T04:34:13.127Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="寒暄的个人博客" type="application/atom+xml">
@@ -148,36 +153,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-搜索框防抖处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-03-29T04:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">搜索框防抖处理</a>
+    <h1 class="article-title" itemprop="name">
+      搜索框防抖处理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+  
+  <a href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2023-03-29T04:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="搜索框防抖处理"><a href="#搜索框防抖处理" class="headerlink" title="搜索框防抖处理"></a>搜索框防抖处理</h4><p>防抖：当持续触发事件时，在一定时间内没有在触发该事件，事件处理函数才会执行一次。若是在规定的时间之前又触发了事件，则重新开始延时。通俗的理解就是如果用户频繁的触发事件，那么只执行该事件的最后一次。</p>
+<p>举个栗子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div</span><br><span class="line">         &lt;input @input=&quot;input&quot; v-model=&quot;put&quot;&gt;&lt;/input&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                timerId: null,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            input(e)&#123;</span><br><span class="line">                cleanTimeout(this.timer)</span><br><span class="line">                this.timerId = setTimeout( () =&gt; &#123;</span><br><span class="line">                  //发送请求</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用户在输入框中输入值会触发input事件，只有当输入停止触发input事件1秒后才会才会执行事件处理函数发送请求。</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,287 +219,137 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/" class="archive-article-date">
-  	<time datetime="2023-03-28T09:44:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
-</a>
+  
+    <a href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git push时 报error: failed to push some refs to </div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/">git push时 报error: failed to push some refs to </a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2023-03-28T07:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">js你不知道的那些坑</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="搜索框防抖处理" data-title="搜索框防抖处理" data-url="http://example.com/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-10-09T11:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/">key的原理</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/04/v-if%E4%B8%8Ev-show/" class="archive-article-date">
-  	<time datetime="2022-10-04T13:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/04/v-if%E4%B8%8Ev-show/">v-if与v-show</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://example.com/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/", 
+    sourceId: "搜索框防抖处理",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/" class="archive-article-date">
-  	<time datetime="2022-10-04T13:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">动态绑定类名</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2022-10-03T12:26:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/">watch监听器</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2022-10-03T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">vue计算属性</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/03/vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2022-10-03T11:41:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/03/vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E4%BB%A4/">vue事件绑定指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/03/Object-defineProperty/" class="archive-article-date">
-  	<time datetime="2022-10-03T11:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/03/Object-defineProperty/">Object.defineProperty</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -492,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
