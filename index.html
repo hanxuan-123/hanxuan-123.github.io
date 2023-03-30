@@ -150,6 +150,63 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-如何将溢出的文本显示成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <hr>
+<p>title: 如何将溢出的文本显示成…<br>date: 2023-03-30 20:01:45</p>
+<p>tags: 问题</p>
+<p>可以使用 CSS 的 <code>text-overflow</code> 属性来实现这个效果。具体做法是将文本包裹在一个固定宽度的容器中，然后使用 <code>overflow: hidden</code> 属性来隐藏溢出部分，并使用 <code>text-overflow: ellipsis</code> 属性来将溢出部分显示为省略号。</p>
+<p>栗子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    hello hello hello hello hello hello world !</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>css代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    //文字不换行</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    // 溢出部分隐藏</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    //溢出部分用省略号表示</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/30/%E5%A6%82%E4%BD%95%E5%B0%86%E6%BA%A2%E5%87%BA%E7%9A%84%E6%96%87%E6%9C%AC%E6%98%BE%E7%A4%BA%E6%88%90/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-微信小程序商品价格闪烁问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -772,69 +829,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue计算属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">vue计算属性</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2022-10-03T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>1.计算属性顾名思义是进行计算的，将 data 中的数据通过一系列的操作得到我们想要的数据的形式，所以计算属性也是对 data 中的数据进行操作<br>注意：计算属性定义的时候为方法，但是使用时当做属性来使用<br>如下图 我们将 data 中 a,b 的值通过计算属性得到 a+b 的值(sum)<br>有人可能会说我直接在插值表达式中写 a+b 不就行了吗，计算属性不是多此一举吗？<br>但是如果是计算 a+b+c+d+…的值呢？你不可能全部写在插值表达式里吧。<br>2.computed 与 methods 都能够实现对数据的复杂处理，那为什么要使用计算属性呢？<br>因为计算属性是基于缓存实现的，只有在计算属性所依赖的值发生改变后才会重新求值，<br>否则都是取缓存中的值，相比于 methods 每次求值都有调用一次函数，效率低。 3.计算属性的底层是基于 object.defineProperty()<br><img src="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/1IGZLO7(8%254FEQMUFKE0ATU.png"></p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/03/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">展开全文 >></a>
     </p>
     
 
