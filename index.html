@@ -150,6 +150,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vuex的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/30/vuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">vuex的简单使用</a>
+    </h1>
+  
+
+  
+  <a href="/2023/03/30/vuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2023-03-30T13:11:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-30</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<p>Vuex 的核心概念包括：</p>
+<ul>
+<li><code>state</code>：存储应用的状态，即数据。</li>
+<li><code>mutations</code>：用于修改 <code>state</code> 中的数据，但只能进行同步操作。</li>
+<li><code>actions</code>：类似于 <code>mutations</code>，但允许进行异步操作(发请求)。</li>
+<li><code>getters</code>：用于获取 <code>state</code> 中的数据，并进行一些计算和处理。</li>
+<li><code>moudles</code>:   模块化管理数据</li>
+</ul>
+<p>在组件中使用Vue，需要先安装Vuex并在Vue中引入，在uniapp内部集成了Vuex无需安装就可以使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入Vue</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">//引入vuex</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">//注册Vuex</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个Vuex实列</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">    <span class="attr">state</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">mutatios</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">actions</span>: &#123;&#125;</span><br><span class="line">    <span class="attr">getters</span>:&#123;&#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+
+<p>在main.js中引入此文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设你的文件放在/store/store</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;/store/store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在Vue实列上挂载</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span></span><br><span class="line">    store</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在组件中获取vuex中的数据</p>
+<p>获取state中的数据：使用<code>mapState</code> 将state中的数据映射成计算属性</p>
+<p>获取mutations中的方法：使用<code>mapMutations</code>将mutations中的方法映射为methods中的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">      <span class="comment">//这里将state中的count属性name属性映射为了计算属性</span></span><br><span class="line">    ...<span class="title function_">mapState</span>([<span class="string">&#x27;count,name&#x27;</span>])</span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">        <span class="comment">//将 `this.add()` 映射为 `this.$store.commit(&#x27;increment&#x27;)`</span></span><br><span class="line">        ...<span class="title function_">mapMutations</span>([<span class="string">&#x27;add&#x27;</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用模块化管理数据,需要开启命名空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入模块</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Moudle1</span> <span class="keyword">from</span> <span class="string">&#x27;模块文件路径&#x27;</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">    <span class="attr">moudles</span>: &#123;</span><br><span class="line">        <span class="title class_">Moudle1</span></span><br><span class="line">    &#125;</span><br><span class="line">                             </span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建一个定义vuex模块化的文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向外暴露一个vuex模块</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="comment">//开启命名空间</span></span><br><span class="line">    <span class="attr">namespaced</span>: <span class="literal">true</span></span><br><span class="line">    <span class="attr">state</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">mutations</span>: &#123;&#125;</span><br><span class="line">    <span class="attr">actions</span>: &#123;&#125;</span><br><span class="line">    <span class="attr">getters</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>模块化管理数据下获取state中数据的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    <span class="attr">computed</span>: &#123;</span><br><span class="line">      <span class="comment">//...mapState(&#x27;模块名&#x27;,[&#x27;属性1&#x27;...])</span></span><br><span class="line">    ...<span class="title function_">mapState</span>(<span class="string">&#x27;moudle&#x27;</span>,[<span class="string">&#x27;count,name&#x27;</span>])</span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">        <span class="comment">//...mapMutations(&#x27;模块名&#x27;,[&#x27;方法名&#x27;])</span></span><br><span class="line">        ...<span class="title function_">mapMutations</span>(<span class="string">&#x27;moudle&#x27;</span>,[<span class="string">&#x27;add&#x27;</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/30/vuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何将溢出的文本显示成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -765,70 +867,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-watch监听器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/">watch监听器</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2022-10-03T12:26:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-03</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="watch-属性"><a href="#watch-属性" class="headerlink" title="watch 属性"></a>watch 属性</h3><p>1.通过监听 data 中的数据变化来做一些操作<br>如下图，watch 监听 data 中 a 的值，点击 botton 改变 a 的值，就会触发 handler 函数，函数有两个参数一个是 a 原始的值，一个是 a 改变后的值，immediate 属性设置是否立即监听，immediate：true 则在加载时就会先调用一下 handler 函数。<br>2.watch 监听 b 的值，即监听一个对象时，这样监听器能否能够监听到呢？答案是不能，这里就需要设置深度监听这个属性了 deep:true;因为数据 c 涉及到的层级不止一层。 3.如果想象直接监听对象中的子数据，则需要用单引号引起来。如’b.c’:{….}</p>
-<p><img src="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/X582ETMR9$CT9JS66YKANS0.png"><br><img src="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/TUQ7X3Y~9PIORBIJA8@%7BW%7BF.png"></p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/">展开全文 >></a>
     </p>
     
 
