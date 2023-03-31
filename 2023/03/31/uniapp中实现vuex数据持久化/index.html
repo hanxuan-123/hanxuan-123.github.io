@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1: | 寒暄的个人博客</title>
+  <title>uniapp中实现vuex数据持久化 | 寒暄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="输入hexo g 命令后报错：err: YAMLException: can not read a block mapping entry; a multiline key may  not be an implicit key at line 4, column 1 主要原因就是后面忘记加空格了 解决：">
+  <meta name="description" content="问题：存储在vuex中的数据会因为刷新页面而导致数据被初始化 解决方法：使用uniapp提供的API uni.setStorageSync(key,data): 将data存储在本地缓存中指定的key中，会覆盖掉原来该key对应的内容 123456const person &#x3D; &amp;#123;    name: &amp;#x27;张三&amp;#x27;,    age: 23&amp;#125;&#x2F;&#x2F;存储时建议使用JSON">
 <meta property="og:type" content="article">
-<meta property="og:title" content="err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:">
-<meta property="og:url" content="http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/index.html">
+<meta property="og:title" content="uniapp中实现vuex数据持久化">
+<meta property="og:url" content="http://example.com/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/index.html">
 <meta property="og:site_name" content="寒暄的个人博客">
-<meta property="og:description" content="输入hexo g 命令后报错：err: YAMLException: can not read a block mapping entry; a multiline key may  not be an implicit key at line 4, column 1 主要原因就是后面忘记加空格了 解决：">
+<meta property="og:description" content="问题：存储在vuex中的数据会因为刷新页面而导致数据被初始化 解决方法：使用uniapp提供的API uni.setStorageSync(key,data): 将data存储在本地缓存中指定的key中，会覆盖掉原来该key对应的内容 123456const person &#x3D; &amp;#123;    name: &amp;#x27;张三&amp;#x27;,    age: 23&amp;#125;&#x2F;&#x2F;存储时建议使用JSON">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/error.png">
-<meta property="article:published_time" content="2023-03-29T04:37:40.000Z">
-<meta property="article:modified_time" content="2023-03-29T04:50:54.561Z">
+<meta property="article:published_time" content="2023-03-31T14:19:15.000Z">
+<meta property="article:modified_time" content="2023-03-31T14:33:41.930Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="error">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/error.png">
   
     <link rel="alternative" href="/atom.xml" title="寒暄的个人博客" type="application/atom+xml">
   
@@ -155,30 +153,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-uniapp中实现vuex数据持久化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:
+      uniapp中实现vuex数据持久化
     </h1>
   
 
   
-  <a href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/" class="archive-article-date">
-  	<time datetime="2023-03-29T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+  <a href="/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2023-03-31T14:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-31</time>
 </a>
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>输入hexo g 命令后报错：err: YAMLException: can not read a block mapping entry; a multiline key may<br>  not be an implicit key at line 4, column 1</p>
-<p>主要原因就是后面忘记加空格了</p>
-<p>解决：</p>
-<p><img src="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/error.png"></p>
+    <p><code>问题：</code>存储在vuex中的数据会因为刷新页面而导致数据被初始化</p>
+<p><code>解决方法</code>：使用uniapp提供的API</p>
+<p><code>uni.setStorageSync(key,data)</code>: 将data存储在本地缓存中指定的key中，会覆盖掉原来该key对应的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">23</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存储时建议使用JSON.stringify()将数据转换为JSON字符串</span></span><br><span class="line">uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;person&#x27;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(person))</span><br></pre></td></tr></table></figure>
+
+<p><code>uni.getStorageSync(key)</code>:从本地缓存中取出对应key的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用JSON.parse()将数据转换为JSON对象</span></span><br><span class="line"><span class="title class_">JSON</span>.<span class="title function_">parse</span>(uni.<span class="title function_">getStorageSync</span>(<span class="string">&#x27;person&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 
     
 
@@ -214,7 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
         		</li>
       		
 		</ul>
@@ -270,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +288,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2023/03/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%95%86%E5%93%81%E4%BB%B7%E6%A0%BC%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          微信小程序商品价格闪烁问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搜索框防抖处理</div>
+    <a href="/2023/03/30/vuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vuex的简单使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,7 +318,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1" data-title="err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:" data-url="http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/"></div>
+	<div class="ds-thread" data-thread-key="uniapp中实现vuex数据持久化" data-title="uniapp中实现vuex数据持久化" data-url="http://example.com/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -346,8 +341,8 @@
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://example.com/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/", 
-    sourceId: "err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1",
+    url: "http://example.com/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/", 
+    sourceId: "uniapp中实现vuex数据持久化",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

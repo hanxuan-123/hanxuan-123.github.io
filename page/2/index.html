@@ -150,6 +150,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-动态绑定类名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">动态绑定类名</a>
+    </h1>
+  
+
+  
+  <a href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/" class="archive-article-date">
+  	<time datetime="2022-10-04T13:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-04</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="vue-动态绑定类名"><a href="#vue-动态绑定类名" class="headerlink" title="vue 动态绑定类名"></a>vue 动态绑定类名</h3><p>对象形式 :calss=”{要添加的类名:表达式}” 表达式为 true 添加 为 false 不添加<br>如下的 div 中在有 basic 类名的基础上再添加一个 color 类名</p>
+<div class="basic" :class="{color:active}"></div>
+
+<p>data 属性<br>data(){<br>return {<br>active:表达式</p>
+<p>}<br>}</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-watch监听器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +237,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="watch-属性"><a href="#watch-属性" class="headerlink" title="watch 属性"></a>watch 属性</h3><p>1.通过监听 data 中的数据变化来做一些操作<br>如下图，watch 监听 data 中 a 的值，点击 botton 改变 a 的值，就会触发 handler 函数，函数有两个参数一个是 a 原始的值，一个是 a 改变后的值，immediate 属性设置是否立即监听，immediate：true 则在加载时就会先调用一下 handler 函数。<br>2.watch 监听 b 的值，即监听一个对象时，这样监听器能否能够监听到呢？答案是不能，这里就需要设置深度监听这个属性了 deep:true;因为数据 c 涉及到的层级不止一层。 3.如果想象直接监听对象中的子数据，则需要用单引号引起来。如’b.c’:{….}</p>
+    <h3 id="watch-属性"><a href="#watch-属性" class="headerlink" title="watch 属性"></a>watch 属性</h3><p><code>作用：通过监听数据变化来做一些操作</code></p>
+<p><code>第一种写法：</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="attr">watch</span>: &#123;</span><br><span class="line">        <span class="title function_">data</span>(<span class="params">newValue, oldValue</span>) &#123;</span><br><span class="line">            <span class="comment">//监听数据data的变化去做一些事...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>第二种写法：</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="attr">watch</span>: &#123;</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">          <span class="title function_">handle</span>(<span class="params">newValue, oldValue</span>) &#123;</span><br><span class="line">              <span class="attr">deep</span>: <span class="literal">true</span>, <span class="comment">//是否开启深度监听 默认值：false</span></span><br><span class="line">              <span class="attr">immediate</span>: <span class="literal">true</span> <span class="comment">//是否开启立即监听(所监听的数据是对象时开启)</span></span><br><span class="line">              <span class="comment">//监听数据data的变化去做一些事...</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>栗子</code></p>
+<p>如下图，watch 监听 data 中 a 的值，点击 botton 改变 a 的值，就会触发 handler 函数，函数有两个参数一个是 a 原始的值，一个是 a 改变后的值，immediate 属性设置是否立即监听，immediate：true 则在加载时就会先调用一下 handler 函数。</p>
+<p>当我们所监听的数据是一个对象时需要设置deep:true，如图中的数据c </p>
+<p>如果想象直接监听对象中的子数据，则需要用单引号引起来。如’b.c’:{….}</p>
 <p><img src="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/X582ETMR9$CT9JS66YKANS0.png"><br><img src="/2022/10/03/watch%E7%9B%91%E5%90%AC%E5%99%A8/TUQ7X3Y~9PIORBIJA8@%7BW%7BF.png"></p>
 
     
@@ -180,6 +257,17 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -840,11 +928,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
             
             <div class="clearfix"></div>

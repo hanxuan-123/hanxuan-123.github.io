@@ -150,6 +150,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-uniapp中实现vuex数据持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/">uniapp中实现vuex数据持久化</a>
+    </h1>
+  
+
+  
+  <a href="/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2023-03-31T14:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-31</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>问题：</code>存储在vuex中的数据会因为刷新页面而导致数据被初始化</p>
+<p><code>解决方法</code>：使用uniapp提供的API</p>
+<p><code>uni.setStorageSync(key,data)</code>: 将data存储在本地缓存中指定的key中，会覆盖掉原来该key对应的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">23</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存储时建议使用JSON.stringify()将数据转换为JSON字符串</span></span><br><span class="line">uni.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;person&#x27;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(person))</span><br></pre></td></tr></table></figure>
+
+<p><code>uni.getStorageSync(key)</code>:从本地缓存中取出对应key的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用JSON.parse()将数据转换为JSON对象</span></span><br><span class="line"><span class="title class_">JSON</span>.<span class="title function_">parse</span>(uni.<span class="title function_">getStorageSync</span>(<span class="string">&#x27;person&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/31/uniapp%E4%B8%AD%E5%AE%9E%E7%8E%B0vuex%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vuex的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -829,73 +912,6 @@
 
 
   
-    <article id="post-动态绑定类名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">动态绑定类名</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/" class="archive-article-date">
-  	<time datetime="2022-10-04T13:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-04</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="vue-动态绑定类名"><a href="#vue-动态绑定类名" class="headerlink" title="vue 动态绑定类名"></a>vue 动态绑定类名</h3><p>对象形式 :calss=”{要添加的类名:表达式}” 表达式为 true 添加 为 false 不添加<br>如下的 div 中在有 basic 类名的基础上再添加一个 color 类名</p>
-<div class="basic" :class="{color:active}"></div>
-
-<p>data 属性<br>data(){<br>return {<br>active:表达式</p>
-<p>}<br>}</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/04/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%90%8D/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -993,11 +1009,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
             
             <div class="clearfix"></div>
