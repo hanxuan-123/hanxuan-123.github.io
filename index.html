@@ -150,6 +150,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mixin混合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/01/mixin%E6%B7%B7%E5%90%88/">mixin混合</a>
+    </h1>
+  
+
+  
+  <a href="/2023/04/01/mixin%E6%B7%B7%E5%90%88/" class="archive-article-date">
+  	<time datetime="2023-04-01T15:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-01</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>mixin:</code>在Vue中，Mixin是一种特殊的对象，它包含了一些可复用的组件代码。它可以被组件引用，从而实现代码的复用和共享。</p>
+<p><code>mixin的使用</code>Mixin的使用非常简单，首先将需要复用的代码封装在一个js文件中，然后在具体的组件中进行引用，最后在组件中添加一个mixins属性。</p>
+<p><code>注意</code>Mixin中定义的数据和方法都会被合并到组件的data和methods中。当组件和Mixin中存在同名属性或方法时，会发生属性和方法的合并，其中组件的属性和方法会覆盖Mixin对象中的属性和方法。例如，如果Mixin中和组件中都有一个名为message的普通类型属性，那么最终会以组件中的message属性为准，若是message是一个对象那么会进行对象的合并（组件有的就以组件为准组件没有的就合并。对于生命周期钩子来说，若是存在同名的钩子则先执行mixin中的钩子再执行组件中的钩子,不同名则按原本的执行顺序执行。比如Mixin对象和组件中都有一个名为created的生命周期钩子函数，那么Mixin对象中的created钩子函数会先执行，然后才会执行组件中的created钩子函数。</p>
+<p><code>栗子</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mixin</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">created</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;i from mixin&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">           <span class="attr">person</span>: &#123;</span><br><span class="line">               <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span></span><br><span class="line">               <span class="attr">hobby</span>: <span class="string">&#x27;前端&#x27;</span></span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">        <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello mixin !&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//具体组件</span></span><br><span class="line"><span class="keyword">import</span> myMixin <span class="keyword">from</span> <span class="string">&#x27;js文件路径&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">created</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;i from component&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mixins</span>: [myMixin],</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">person</span>: &#123;</span><br><span class="line">                <span class="attr">name</span>: <span class="string">&#x27;李四&#x27;</span>,</span><br><span class="line">                <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">         <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello component !&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>打印data</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;李四&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">hobby</span>: <span class="string">&#x27;前端&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>调用sayHello()</code>：输出 ‘ hello component ‘</p>
+<p><code>created执行</code>：先打印 ‘ i  from mixin ‘ 再打印 ‘i from component  ‘</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/01/mixin%E6%B7%B7%E5%90%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-uniapp中实现vuex数据持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -841,80 +927,9 @@
 
 
   
-    <article id="post-v-if与v-show" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/04/v-if%E4%B8%8Ev-show/">v-if与v-show</a>
-    </h1>
-  
-
-  
-  <a href="/2022/10/04/v-if%E4%B8%8Ev-show/" class="archive-article-date">
-  	<time datetime="2022-10-04T13:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-04</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="v-if-v-else-if-v-else"><a href="#v-if-v-else-if-v-else" class="headerlink" title="v-if(v-else-if v-else)"></a>v-if(v-else-if v-else)</h3><p>动态显示隐藏节点<br><img src="/2022/10/04/v-if%E4%B8%8Ev-show/P">%7BQ4A1Z%24WU_D4Z%5B48R743E.png)</p>
-<p>v-if 与 template 标签配合，template 标签不会被解析即不会影响原本的页面结构<br>当我需要给三个 h1 都绑定 v-if 时(三者判断表达式相同)，为了不影响页面结构<br><template v-if="表达式"></template></p>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-
-
-<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p>动态显示隐藏节点</p>
-<h3 id="v-show-和-v-if-的区别"><a href="#v-show-和-v-if-的区别" class="headerlink" title="v-show 和 v-if 的区别"></a>v-show 和 v-if 的区别</h3><p>1.v-show 底层通过 dispaly:none 与 display:block 实现(节点依然存在在页面中) v-if 动态的删除与创建节点 2.当需要频繁的显示与隐藏一个节点时建议使用 v-show</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/04/v-if%E4%B8%8Ev-show/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
