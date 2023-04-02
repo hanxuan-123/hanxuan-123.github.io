@@ -150,6 +150,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-key的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/">key的原理</a>
+    </h1>
+  
+
+  
+  <a href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2022-10-09T11:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-09</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="key-的原理"><a href="#key-的原理" class="headerlink" title="key 的原理"></a>key 的原理</h3><p>在 vue 中 v-for 我们都要跟一个 key 属性，一般都是用 id 偶尔也用索引作为 key 的值 1.虚拟 dom 中 key 的作用：<br>key 是虚拟 dom 对象的标识，当数据发生变化时，Vue 会根据新数据生成新的虚拟 dom，随后 Vue 进行新虚拟 dom 与旧虚拟 dom 的差异比较，比较规则如下： 2.对比规则：</p>
+<p>(1)旧虚拟 dom 中找到了与新虚拟 dom 相同的 key<br>① 若虚拟 Dom 中内容没发生改变，直接使用先前的真实 dom<br>② 若虚拟 dom 中的内容变了，则生成新的真实 dom，随后替换掉页面中之间的虚拟 Dom</p>
+<p>(2)旧虚拟 dom 中未找到与新虚拟 Dom 相同的 key<br>创建新的真实 dom，随后渲染到页面 3.使用 index 作为 key 值可能引发的问题：</p>
+<p>（1）若对数据进行：逆序添加，逆序删除等破坏顺序的操作<br>会产生没必要的真实 dom 更新，====》页面虽然没问题，但是效率低。</p>
+<p>(2)若结构中包含了输入类 dom<br>页面会出问题</p>
+<p>4.开发中如何选择 key？<br>(1)最好用数据的唯一标识作为 key<br>(2)如果不存在对数据循序的修改，仅用于页面的渲染展示，用 index 作为 key 值也没问题。</p>
+<p><img src="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/G0TW(Y%60%5DWY%25D114X71(%605PV.png"><br><img src="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/GX%60~R~%7BZ4(%7B%7D4%25YLU44ZKD5.png"></p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/10/09/key%E7%9A%84%E5%8E%9F%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-v-if与v-show" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -746,71 +815,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/07/%E9%97%AD%E5%8C%85/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-原型链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/">原型链</a>
-    </h1>
-  
-
-  
-  <a href="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="archive-article-date">
-  	<time datetime="2022-06-05T15:21:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-05</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="原型链示意图"><a href="#原型链示意图" class="headerlink" title="原型链示意图"></a>原型链示意图</h1><p><img src="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/02.png"></p>
-<h1 id="具体实列"><a href="#具体实列" class="headerlink" title="具体实列"></a>具体实列</h1><p><img src="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/03.png"></p>
-<p><img src="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/04.png"></p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/05/%E5%8E%9F%E5%9E%8B%E9%93%BE/">展开全文 >></a>
     </p>
     
 
