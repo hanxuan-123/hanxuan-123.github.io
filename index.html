@@ -150,6 +150,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Js实现冒泡排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">Js实现冒泡排序</a>
+    </h1>
+  
+
+  
+  <a href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2023-04-04T14:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>复杂度:</code>O(n平方)</p>
+<p><code>冒泡排序原理</code></p>
+<p>冒泡排序使用嵌套循环实现<code>外层循环控制循环趟数</code>，<code>内层循环控制比较次数</code>，外层循环趟数为数组的长度-1(arr.length-1),内层循环次数随着外层循环次数的递增而递减。</p>
+<p>每进行一次循环都会将数组相邻的两个元素进行比较，如果前者大于后者，则交换二者的位置。每一次比较都会确定出一个最大值。</p>
+<p><code>栗子</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line"><span class="comment">//外层循环控制趟数(数组长度-1趟)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;arr.<span class="property">length</span>-<span class="number">1</span>; i++)&#123;</span><br><span class="line">    <span class="comment">//内层循环控制比较的次数</span></span><br><span class="line">    <span class="comment">//arr.length - 1 -i 为啥要 -i因为每当外层循环完成一次都会确定出一个最大的值，假设循环完成了一次此时arr=[6,5,4,3,2,1,7]，显然经过一次比较后数组中最大的值已经被确定且位于最后的位置，第二次循环时就没必要再去与最后一个元素进行比较，依次类推第二、第三次也一样</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;arr.<span class="property">length</span> - <span class="number">1</span> -i; j++)</span><br><span class="line">        <span class="keyword">if</span>(arr[j] &gt; arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">let</span> temp = arr[j + <span class="number">1</span>]</span><br><span class="line">            arr[j + <span class="number">1</span>] = arr[j]</span><br><span class="line">            arr[j] = temp</span><br><span class="line">            <span class="comment">//可使用es6结构复杂使代码更加简洁</span></span><br><span class="line">            <span class="comment">//[arr[j+1],arr[j]] = [arr[j],arr[j+1]]</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-在javaScript中如何删除数组中指定的元素？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -838,79 +918,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js你不知道的那些坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">js你不知道的那些坑</a>
-    </h1>
-  
-
-  
-  <a href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2023-03-28T07:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>js第一坑： 使用==进行比较时会进行数据类型的隐式转换</strong></p>
-<p>①null == undefind 值为true。</p>
-<p>这是js在设计者设计js这门语言时遗留下来的一个历史‘bug’。如果要准确比较可以使用 === ，null === undefind为false。</p>
-<p>②数字在与字符串进行比较时，会现将字符串转为数字类型再进行比较</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> == <span class="string">&#x27;1&#x27;</span><span class="comment">//true 此处会现将字符串&#x27;1&#x27;转换为数字1</span></span><br><span class="line"></span><br><span class="line">[] == <span class="number">0</span> <span class="comment">//true 空数字转为数字值为0</span></span><br><span class="line">[] == <span class="string">&#x27;&#x27;</span> <span class="comment">//true 空数字转为字符值为空字符串</span></span><br><span class="line"></span><br><span class="line">&#123;&#125; == <span class="title class_">NaN</span> <span class="comment">//true 空对象在被转换为数字时会转换成NAN</span></span><br><span class="line">&#123;&#125; == <span class="string">&#x27;[object,object]&#x27;</span> <span class="comment">//true  空对象在被转换为字符串时&#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;</span> == <span class="number">0</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>js第二坑：NAN数据类型</strong></p>
-<p>NAN(not a number)表示不是一个数据，他是js的一个基本数据类型。NAN不与任何值相等，也就是说它与任何值进行比较结果都是false包括它自己本身。如果需要判断一个值是否为NAN需要使用isNaN()函数来进行判断</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">NaN</span> == <span class="title class_">NaN</span><span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="title class_">NaN</span>) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">&#x27;hello&#x27;</span>)<span class="comment">//true，此处因为字符串&#x27;hello&#x27;不能转换为数字，</span></span><br></pre></td></tr></table></figure>
-
-<p>js中还有很多坑，今天就说到这儿</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">展开全文 >></a>
     </p>
     
 

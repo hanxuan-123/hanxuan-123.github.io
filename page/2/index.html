@@ -150,6 +150,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js你不知道的那些坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">js你不知道的那些坑</a>
+    </h1>
+  
+
+  
+  <a href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" class="archive-article-date">
+  	<time datetime="2023-03-28T07:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><strong>js第一坑： 使用==进行比较时会进行数据类型的隐式转换</strong></p>
+<p>①null == undefind 值为true。</p>
+<p>这是js在设计者设计js这门语言时遗留下来的一个历史‘bug’。如果要准确比较可以使用 === ，null === undefind为false。</p>
+<p>②数字在与字符串进行比较时，会现将字符串转为数字类型再进行比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> == <span class="string">&#x27;1&#x27;</span><span class="comment">//true 此处会现将字符串&#x27;1&#x27;转换为数字1</span></span><br><span class="line"></span><br><span class="line">[] == <span class="number">0</span> <span class="comment">//true 空数字转为数字值为0</span></span><br><span class="line">[] == <span class="string">&#x27;&#x27;</span> <span class="comment">//true 空数字转为字符值为空字符串</span></span><br><span class="line"></span><br><span class="line">&#123;&#125; == <span class="title class_">NaN</span> <span class="comment">//true 空对象在被转换为数字时会转换成NAN</span></span><br><span class="line">&#123;&#125; == <span class="string">&#x27;[object,object]&#x27;</span> <span class="comment">//true  空对象在被转换为字符串时&#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;</span> == <span class="number">0</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>js第二坑：NAN数据类型</strong></p>
+<p>NAN(not a number)表示不是一个数据，他是js的一个基本数据类型。NAN不与任何值相等，也就是说它与任何值进行比较结果都是false包括它自己本身。如果需要判断一个值是否为NAN需要使用isNaN()函数来进行判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">NaN</span> == <span class="title class_">NaN</span><span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="title class_">NaN</span>) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">&#x27;hello&#x27;</span>)<span class="comment">//true，此处因为字符串&#x27;hello&#x27;不能转换为数字，</span></span><br></pre></td></tr></table></figure>
+
+<p>js中还有很多坑，今天就说到这儿</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/28/js%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-key的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -750,71 +823,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/16/%E6%88%96%E8%BF%90%E7%AE%97%E4%B8%8E%E8%BF%90%E7%AE%97%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/07/%E9%97%AD%E5%8C%85/">闭包</a>
-    </h1>
-  
-
-  
-  <a href="/2022/06/07/%E9%97%AD%E5%8C%85/" class="archive-article-date">
-  	<time datetime="2022-06-07T10:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包指的是一个函数有权访问另一个函数作用域内的变量的函数，简单来说就是提供了一条全局访问函数内部变量的通道。正常情况下函数内部的变量在全局是访问不到的。</p>
-<p><img src="/2022/06/07/%E9%97%AD%E5%8C%85/1.png"><br><img src="/2022/06/07/%E9%97%AD%E5%8C%85/2.png"></p>
-<h3 id="为什么闭包中的变量不会被销毁？"><a href="#为什么闭包中的变量不会被销毁？" class="headerlink" title="为什么闭包中的变量不会被销毁？"></a>为什么闭包中的变量不会被销毁？</h3><p>我们都知道函数在执行完毕后其内部的变量会被自动销毁，而闭包中的变量不会被自动销毁，想要销毁闭包中的变量需要手动清除。比如上述的例子中 让 b=null 就销毁了。那为什么闭包中的变量不会被销毁，简单来说因为 fn1 函数产生一个作用域 fn2 函数也产生一个作用域 fn2 函数产生的作用域引用 fn1 函数中的变量。根据垃圾回收机制 被另一个作用域引用的变量不会被回收。</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/07/%E9%97%AD%E5%8C%85/">展开全文 >></a>
     </p>
     
 

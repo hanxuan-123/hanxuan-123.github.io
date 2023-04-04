@@ -150,6 +150,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/07/%E9%97%AD%E5%8C%85/">闭包</a>
+    </h1>
+  
+
+  
+  <a href="/2022/06/07/%E9%97%AD%E5%8C%85/" class="archive-article-date">
+  	<time datetime="2022-06-07T10:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包指的是一个函数有权访问另一个函数作用域内的变量的函数，简单来说就是提供了一条全局访问函数内部变量的通道。正常情况下函数内部的变量在全局是访问不到的。</p>
+<p><img src="/2022/06/07/%E9%97%AD%E5%8C%85/1.png"><br><img src="/2022/06/07/%E9%97%AD%E5%8C%85/2.png"></p>
+<h3 id="为什么闭包中的变量不会被销毁？"><a href="#为什么闭包中的变量不会被销毁？" class="headerlink" title="为什么闭包中的变量不会被销毁？"></a>为什么闭包中的变量不会被销毁？</h3><p>我们都知道函数在执行完毕后其内部的变量会被自动销毁，而闭包中的变量不会被自动销毁，想要销毁闭包中的变量需要手动清除。比如上述的例子中 让 b=null 就销毁了。那为什么闭包中的变量不会被销毁，简单来说因为 fn1 函数产生一个作用域 fn2 函数也产生一个作用域 fn2 函数产生的作用域引用 fn1 函数中的变量。根据垃圾回收机制 被另一个作用域引用的变量不会被回收。</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/07/%E9%97%AD%E5%8C%85/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-原型链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
