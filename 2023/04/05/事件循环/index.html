@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023/4 | 寒暄的个人博客</title>
+  <title>事件循环 | 寒暄的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="寒暄的个人博客">
-<meta property="og:url" content="http://example.com/archives/2023/04/index.html">
+  <meta name="description" content="1.浏览器的进程模型 什么是进程？程序在运行时需要有一个自己专属的内存空间，可以将这个空间简单的理解为进程。每个应用至少有一个进程，进程与进程之间相互独立。 什么是线程？简单来说在有了进程后就可以开始运行代码了，而这个运行代码的人就可以简单的看过是线程。一个进程至少有一个线程。在程序运行后会自动创建一个线程来运行代码而这个线程就叫做主线程。如果程序需要同时执行多个代码块，这是主线程就可以启动多个线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件循环">
+<meta property="og:url" content="http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="寒暄的个人博客">
+<meta property="og:description" content="1.浏览器的进程模型 什么是进程？程序在运行时需要有一个自己专属的内存空间，可以将这个空间简单的理解为进程。每个应用至少有一个进程，进程与进程之间相互独立。 什么是线程？简单来说在有了进程后就可以开始运行代码了，而这个运行代码的人就可以简单的看过是线程。一个进程至少有一个线程。在程序运行后会自动创建一个线程来运行代码而这个线程就叫做主线程。如果程序需要同时执行多个代码块，这是主线程就可以启动多个线">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E5%9B%BE%E7%89%871.png">
+<meta property="article:published_time" content="2023-04-05T07:07:02.000Z">
+<meta property="article:modified_time" content="2023-04-05T08:19:17.486Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E5%9B%BE%E7%89%871.png">
   
     <link rel="alternative" href="/atom.xml" title="寒暄的个人博客" type="application/atom+xml">
   
@@ -148,36 +155,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-事件循环" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="archive-article-date">
+    <h1 class="article-title" itemprop="name">
+      事件循环
+    </h1>
+  
+
+  
+  <a href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="archive-article-date">
   	<time datetime="2023-04-05T07:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
 </a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">事件循环</a>
-    </h1>
+  </header>
   
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>1.浏览器的进程模型</code></p>
+<p><code>什么是进程？</code>程序在运行时需要有一个自己专属的内存空间，可以将这个空间简单的理解为进程。每个应用至少有一个进程，进程与进程之间相互独立。</p>
+<p><code>什么是线程？</code>简单来说在有了进程后就可以开始运行代码了，而这个运行代码的人就可以简单的看过是线程。一个进程至少有一个线程。在程序运行后会自动创建一个线程来运行代码而这个线程就叫做主线程。如果程序需要同时执行多个代码块，这是主线程就可以启动多个线程来执行代码。所以一个进程可以包含多个线程。</p>
+<p><code>浏览器有哪些进程与线程</code></p>
+<p>浏览器是一个十分复杂的应用程序，它是一个多进程多线程的应用程序。</p>
+<p>浏览器的主要进程包括 <code>网络进程</code>、<code>渲染进程</code>、<code>浏览器进程</code></p>
+<p>此次主要讲一下渲染进程：在渲染进程开启后会开启一个渲染主线程，主进程负责执行 html、css、js代码。</p>
+<p>渲染主线程是如何工作的？渲染主线程是一个非常繁忙的线程，它的工作主要包括但不限于以下工作:</p>
+<p>①解析html、css</p>
+<p>②计算样式</p>
+<p>③布局</p>
+<p>④执行全局js代码</p>
+<p>⑤渲染页面</p>
+<p>⑥执行事件处理函数</p>
+<p>……….</p>
+<p>渲染主线程面对如此之多的任务，就会遇到一个前所未有的难题：如何调度任务？</p>
+<p>比如：</p>
+<p>渲染主线程正在执行一个js函数，函数执行到一半的时候用户点击了按钮触发了点击事件，那么是应该继续执行这个函数还是停止这个函数的执行去执行点击事件的回调函数呢？</p>
+<p>为解决上面的问题于是就提出了事件循环又称消息循环</p>
+<p><code>事件循环</code></p>
+<p><img src="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E5%9B%BE%E7%89%871.png"></p>
+<p>在主线程开启后会进入一个循环，在渲染主线程中的任务执行完毕后会去查看消息队列中是否存在未执行的任务，如果存在则放入渲染主线程中执行。当主线程中的任务执行完毕后有回到消息队列中查看是否存在未执行的任务，这样就形成了一个循环的过程。这个过程就叫做事件循环。其它线程可以向任务队列中加入任务</p>
+<p><code>异步</code></p>
+<p>代码在执行的过程可能会遇到一些无法立即处理的任务。</p>
+<p>比如： 定时器任务（setTimeout）、网络通信任务（ajax）、事件任务（addEvementLister）</p>
+<p>如果在渲染主线程执行到这些代码后等待这些任务的时机到来，那么就会导致主线程会长期处于一个<code>阻塞</code>的状态，从而会导致页面卡死（因为一些渲染页面的任务无法执行）。</p>
+<p>因此浏览器采用异步的方式来解决这个问题。当遇到无法立即处理的任务时，此时浏览器会将此任务交给其它进程的线程来处理，该线程在处理好后将任务加入消息队列。主线程就不用再等待此任务执行完毕后再去执行其它任务，而会立即执行主线程中剩下的任务。</p>
+<p><code>使用异步的方式从而使主线程永不阻塞</code></p>
+<p><code>任务优先级</code></p>
+<p>消息队列中的任务存在任务的优先级，不同与以前的宏任务与微任务。</p>
+<p>根据w3c的最新解释：</p>
+<p>每个任务都有一个任务类型，同一个类型的任务必须处于同一队列，不同类型的任务可以分属不同类型的队列。浏览器必须存在一个微任务队列，微队列中的任务优先级高于其它所有任务队列中的任务。</p>
+<p>目前在谷歌浏览器的实现中至少包含了以下队列：<br>①延时队列（存放计时器任务）优先级中</p>
+<p>②交互队列 （存放用户操作后产生的任务）优先级 高</p>
+<p>③微任务 优先级最高</p>
 
-        <div class="article-info info-on-right">
-          
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,133 +251,137 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2023-04-04T14:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
-</a>
+  
+    <a href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Js实现冒泡排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/04/Js%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">Js实现冒泡排序</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/02/%E5%9C%A8javaScript%E4%B8%AD%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2023-04-02T08:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/02/%E5%9C%A8javaScript%E4%B8%AD%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E6%8C%87%E5%AE%9A%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%9F/">在javaScript中如何删除数组中指定的元素？</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="事件循环" data-title="事件循环" data-url="http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/01/mixin%E6%B7%B7%E5%90%88/" class="archive-article-date">
-  	<time datetime="2023-04-01T15:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/01/mixin%E6%B7%B7%E5%90%88/">mixin混合</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://example.com/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/", 
+    sourceId: "事件循环",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
 
 
           </div>
@@ -338,8 +404,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

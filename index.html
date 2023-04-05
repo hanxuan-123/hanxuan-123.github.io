@@ -150,6 +150,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-事件循环" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">事件循环</a>
+    </h1>
+  
+
+  
+  <a href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="archive-article-date">
+  	<time datetime="2023-04-05T07:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>1.浏览器的进程模型</code></p>
+<p><code>什么是进程？</code>程序在运行时需要有一个自己专属的内存空间，可以将这个空间简单的理解为进程。每个应用至少有一个进程，进程与进程之间相互独立。</p>
+<p><code>什么是线程？</code>简单来说在有了进程后就可以开始运行代码了，而这个运行代码的人就可以简单的看过是线程。一个进程至少有一个线程。在程序运行后会自动创建一个线程来运行代码而这个线程就叫做主线程。如果程序需要同时执行多个代码块，这是主线程就可以启动多个线程来执行代码。所以一个进程可以包含多个线程。</p>
+<p><code>浏览器有哪些进程与线程</code></p>
+<p>浏览器是一个十分复杂的应用程序，它是一个多进程多线程的应用程序。</p>
+<p>浏览器的主要进程包括 <code>网络进程</code>、<code>渲染进程</code>、<code>浏览器进程</code></p>
+<p>此次主要讲一下渲染进程：在渲染进程开启后会开启一个渲染主线程，主进程负责执行 html、css、js代码。</p>
+<p>渲染主线程是如何工作的？渲染主线程是一个非常繁忙的线程，它的工作主要包括但不限于以下工作:</p>
+<p>①解析html、css</p>
+<p>②计算样式</p>
+<p>③布局</p>
+<p>④执行全局js代码</p>
+<p>⑤渲染页面</p>
+<p>⑥执行事件处理函数</p>
+<p>……….</p>
+<p>渲染主线程面对如此之多的任务，就会遇到一个前所未有的难题：如何调度任务？</p>
+<p>比如：</p>
+<p>渲染主线程正在执行一个js函数，函数执行到一半的时候用户点击了按钮触发了点击事件，那么是应该继续执行这个函数还是停止这个函数的执行去执行点击事件的回调函数呢？</p>
+<p>为解决上面的问题于是就提出了事件循环又称消息循环</p>
+<p><code>事件循环</code></p>
+<p><img src="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E5%9B%BE%E7%89%871.png"></p>
+<p>在主线程开启后会进入一个循环，在渲染主线程中的任务执行完毕后会去查看消息队列中是否存在未执行的任务，如果存在则放入渲染主线程中执行。当主线程中的任务执行完毕后有回到消息队列中查看是否存在未执行的任务，这样就形成了一个循环的过程。这个过程就叫做事件循环。其它线程可以向任务队列中加入任务</p>
+<p><code>异步</code></p>
+<p>代码在执行的过程可能会遇到一些无法立即处理的任务。</p>
+<p>比如： 定时器任务（setTimeout）、网络通信任务（ajax）、事件任务（addEvementLister）</p>
+<p>如果在渲染主线程执行到这些代码后等待这些任务的时机到来，那么就会导致主线程会长期处于一个<code>阻塞</code>的状态，从而会导致页面卡死（因为一些渲染页面的任务无法执行）。</p>
+<p>因此浏览器采用异步的方式来解决这个问题。当遇到无法立即处理的任务时，此时浏览器会将此任务交给其它进程的线程来处理，该线程在处理好后将任务加入消息队列。主线程就不用再等待此任务执行完毕后再去执行其它任务，而会立即执行主线程中剩下的任务。</p>
+<p><code>使用异步的方式从而使主线程永不阻塞</code></p>
+<p><code>任务优先级</code></p>
+<p>消息队列中的任务存在任务的优先级，不同与以前的宏任务与微任务。</p>
+<p>根据w3c的最新解释：</p>
+<p>每个任务都有一个任务类型，同一个类型的任务必须处于同一队列，不同类型的任务可以分属不同类型的队列。浏览器必须存在一个微任务队列，微队列中的任务优先级高于其它所有任务队列中的任务。</p>
+<p>目前在谷歌浏览器的实现中至少包含了以下队列：<br>①延时队列（存放计时器任务）优先级中</p>
+<p>②交互队列 （存放用户操作后产生的任务）优先级 高</p>
+<p>③微任务 优先级最高</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Js实现冒泡排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -842,82 +950,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git-push时-报error-failed-to-push-some-refs-to" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/">git push时 报error: failed to push some refs to </a>
-    </h1>
-  
-
-  
-  <a href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/" class="archive-article-date">
-  	<time datetime="2023-03-28T09:44:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今天在使用git-push向仓库提交代码时报如下错误：</p>
-<p><img src="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/error.png"></p>
-<p>通过查找发现仓库中存在一个README.md文件本地代码没有，直接使用 git push -u origin master - f强制提交即可。</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/03/28/git-push%E6%97%B6-%E6%8A%A5error-failed-to-push-some-refs-to/">展开全文 >></a>
     </p>
     
 
