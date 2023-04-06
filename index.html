@@ -150,6 +150,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浏览器渲染流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/">浏览器渲染流程</a>
+    </h1>
+  
+
+  
+  <a href="/2023/04/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2023-04-06T08:57:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>浏览器渲染流程：</code></p>
+<p>​    在网络进程获取到html文档后会想消息队列中加入一个渲染任务，渲染主线程在通过事件循环执行渲染任务完成渲染的过程。</p>
+<p><code>渲染具体过程</code></p>
+<p>​    <code>解析html-parseHtml</code>: 浏览器会将html字符串解析为dom树，若是在解析过程中遇到css代码，为了提高效率浏览器会启动一个预解析器率先下载（网络进程）和解析css。比如解析到<code>link</code>标签时，若此时外部的css还没下载解析好，主线程不会等待，会继续解析后面的html代码，css将交给预解析器。这也是为什么css不会导致html代码解析的根本原因。主线程解析到<code>script</code>标签时会立即停止一切工作等待js代码下载并将全局代码解析执行完成后才继续往下解析html代码。这是因为js代码可能会修改当前dom树，所以dom树的生成必须停止。这也是为啥js会阻塞html代码解析的原因。</p>
+<p>​    <code>样式计算</code></p>
+<p>​    主线程会遍历所得到的dom树然后计算出每一个节点的最终样式（computed style）,等到一颗带有样式的dom树。</p>
+<p>​    <code>布局</code></p>
+<p>主线程会遍历带有样式的dom树，计算每一个节点的集合信息，例如节点的宽、高以及相对于包含块的位置等。完成这一阶段后会形成布局树。</p>
+<p><code>分层</code></p>
+<p>主线程会对布局树进行分层，分层的好处在与如果未来我们将某一层改变后，仅对该层进行处理即可大大的提升了效率。</p>
+<p><code>绘制</code></p>
+<p>主线程会对每一个层生成绘制指令集，用于描述这一层如何绘制出来</p>
+<p><code>分块</code></p>
+<p>完成绘制后，主线程会将每一层的绘制信息交个合成线程，剩下的工作都由合成线程完成。合层线程首先会对没一个层进行分块，将其划分为更多的小区域。</p>
+<p><code>光栅化</code></p>
+<p>和成线程将分块信息交给gpu进程，gpu进程会开启多个线程来完成光栅化，并且优先处理靠近视口区域的块。光栅化会得到一块一块的位图。</p>
+<p><code>画</code></p>
+<p>合成线程拿到每一层的位图后，会生成一个指令信息。指令信息会标出每个位图该画到屏幕的那一个位置，以及考虑到是否要旋转缩放等变形。变形发生在合成线程与主线程无关，这也是为啥transform性能高的原因。</p>
+<p>最终合成线程再将指令交个gpu进程由系统的硬件（显卡等）将图像呈现在屏幕上。</p>
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-事件循环" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,84 +993,6 @@
 
 
   
-    <article id="post-搜索框防抖处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">搜索框防抖处理</a>
-    </h1>
-  
-
-  
-  <a href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-03-29T04:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="搜索框防抖处理"><a href="#搜索框防抖处理" class="headerlink" title="搜索框防抖处理"></a>搜索框防抖处理</h4><p>防抖：当持续触发事件时，在一定时间内没有在触发该事件，事件处理函数才会执行一次。若是在规定的时间之前又触发了事件，则重新开始延时。通俗的理解就是如果用户频繁的触发事件，那么只执行该事件的最后一次。</p>
-<p>举个栗子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div</span><br><span class="line">         &lt;input @input=&quot;input&quot; v-model=&quot;put&quot;&gt;&lt;/input&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                timerId: null,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            input(e)&#123;</span><br><span class="line">                cleanTimeout(this.timer)</span><br><span class="line">                this.timerId = setTimeout( () =&gt; &#123;</span><br><span class="line">                  //发送请求</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>用户在输入框中输入值会触发input事件，只有当输入停止触发input事件1秒后才会才会执行事件处理函数发送请求。</p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/03/29/%E6%90%9C%E7%B4%A2%E6%A1%86%E9%98%B2%E6%8A%96%E5%A4%84%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1081,6 +1095,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">知识</a>
               </li>
             
             <div class="clearfix"></div>
