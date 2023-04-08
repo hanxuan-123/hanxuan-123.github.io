@@ -150,6 +150,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-createDocumentFragment-方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/08/createDocumentFragment-%E6%96%B9%E6%B3%95/">createDocumentFragment()方法</a>
+    </h1>
+  
+
+  
+  <a href="/2023/04/08/createDocumentFragment-%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2023-04-08T02:51:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><code>createDocumentFragment()</code>是用来创建一个虚拟的节点对象，或者说，是用来创建文档碎片节点。它可以包含各种类型的节点，在创建之初是空的。</p>
+<p><code>createDocumentFragment()方法</code>一般用于暂时存放那些一次插入文档中的所有节点。</p>
+<p>当我们需要动态添加多个dom元素时，若直接添加会造成多次<code>reflow</code>(重排)，这种做法效率低，性能影响大。此时我们可以使用createDocumentFragment()方法将所有创建的dom元素暂时存储起来，然后进行一次性的添加，从而减少dom的渲染次数，提高性能。</p>
+<p><code>栗子</code>: 我们向ul中动态添加多个li元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取dom对象</span></span><br><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querSlectory</span>(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lis = <span class="variable language_">document</span>.<span class="title function_">createDocumentFragment</span>()</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    <span class="comment">//创建li元素</span></span><br><span class="line">   <span class="keyword">let</span> li = <span class="variable language_">document</span>.<span class="title function_">createElemet</span>(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">    <span class="comment">//直接添加不可取</span></span><br><span class="line">   <span class="comment">// ul.appendChild(li)</span></span><br><span class="line">  </span><br><span class="line">   <span class="comment">//将所有创建的li元素进行存储</span></span><br><span class="line">   lis.<span class="title function_">appenChild</span>(li)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将存储的所有li元素添加到ul下</span></span><br><span class="line">ul.<span class="title function_">appenChild</span>(lis)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/08/createDocumentFragment-%E6%96%B9%E6%B3%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浏览器渲染流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -887,83 +966,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2023/03/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%95%86%E5%93%81%E4%BB%B7%E6%A0%BC%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/">err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</a>
-    </h1>
-  
-
-  
-  <a href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/" class="archive-article-date">
-  	<time datetime="2023-03-29T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
-</a>
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>输入hexo g 命令后报错：err: YAMLException: can not read a block mapping entry; a multiline key may<br>  not be an implicit key at line 4, column 1</p>
-<p>主要原因就是后面忘记加空格了</p>
-<p>解决：</p>
-<p><img src="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/error.png"></p>
-
-    
-
-    
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/03/29/err-YAMLException-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key-at-line-4-column-1/">展开全文 >></a>
     </p>
     
 
